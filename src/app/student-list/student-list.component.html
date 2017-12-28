@@ -1,0 +1,36 @@
+<h1>病人列表</h1>
+
+<div>
+  <table class="table1">
+    <tbody>
+      <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>治疗次数</th>
+        <th>性别</th>
+        <th>操作</th>
+      </tr>
+      <tr  *ngFor="let patient of patients">
+        <td>
+          {{patient.id}}
+        </td>
+        <td>
+          {{patient.name}}
+        </td>
+        <td>
+          {{patient.time}}
+        </td>
+        <td>
+          {{patient.sex}}
+        </td>
+        <td>
+          <span (click)="deletePatientByID(patient.id)">[删除]</span>
+        </td>
+      </tr>
+      <tr><td><button (click)="sortPatients('asc')">正序</button></td>
+        <td><button (click)="sortPatients('desc')" >倒序</button></td>
+        <td><button (click)="sortPatients('random')">随机</button></td>
+        <td colspan="2"><button (click)="addNewPatient()">新增病人</button></td></tr>
+    </tbody>
+  </table>
+</div>
